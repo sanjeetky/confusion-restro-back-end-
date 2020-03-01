@@ -6,8 +6,8 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 var passport = require('passport');
 var authenticate = require('./authenticate');
-
-const url = 'mongodb://localhost:27017/confusion';
+var config = require('./config');
+const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
@@ -37,7 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());
 
 
-//app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(session({
   name:'session-id',
@@ -50,7 +50,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
