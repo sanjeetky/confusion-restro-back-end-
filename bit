@@ -1,0 +1,16 @@
+git --version
+git config --global user.name "Your Name"
+git config --global user.email <your email address>
+git config --list
+
+Initializing the folder as a Git repository
+git init
+git status
+git add .
+git commit -m "first commit"
+git log --oneline
+
+
+Setting up an Online Git repository
+git remote add origin <repository URL>
+git push -u origin master
