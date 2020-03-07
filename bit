@@ -14,3 +14,6 @@ git log --oneline
 Setting up an Online Git repository
 git remote add origin <repository URL>
 git push -u origin master
+
+//install required yarn repository
+     yarn install --ignore-engines
